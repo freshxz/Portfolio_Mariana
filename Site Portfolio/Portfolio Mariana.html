@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design Gráfico – Mariana Freitas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #f8f9fa;
+            --secondary-color: #ffffff;
+            --accent-color: #e8eef5;
+            --highlight-color: #e94560;
+            --light-bg: #f5f5f5;
+            --text-primary: #2c3e50;
+            --text-secondary: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid var(--highlight-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            padding: 150px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+            border-bottom: 3px solid var(--highlight-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--highlight-color);
+            text-shadow: none;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--highlight-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #ff6b7a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 2rem;
+            background-color: var(--primary-color);
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--highlight-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--highlight-color);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid var(--highlight-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 69, 96, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e8eef5, #d9e3ee);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--highlight-color);
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--highlight-color);
+        }
+
+        .project-category {
+            display: inline-block;
+            background-color: rgba(233, 69, 96, 0.1);
+            color: var(--highlight-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #ffffff;
+            padding: 80px 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight-color);
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background-color: rgba(233, 69, 96, 0.08);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            color: var(--highlight-color);
+            font-weight: 600;
+            border: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 50px auto;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            color: var(--highlight-color);
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff6b7a;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--highlight-color);
+            margin-bottom: 1rem;
+            clear: both;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section h3 {
+            color: var(--highlight-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 2rem;
+            border-top: 3px solid var(--highlight-color);
+        }
+
+        footer p {
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 0.8rem;
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff6b7a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                margin: 20px auto;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container container">
+            <a href="#home" class="logo"> Mariana Barella Freitas</a>
+            <nav>
+                <ul>
+                    <li><a onclick="scrollToSection('projects')">Projetos</a></li>
+                    <li><a onclick="scrollToSection('about')">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Design Gráfico</h1>
+            <p>Portfólio completo de atividades acadêmicas em Design Gráfico, desenvolvidas com critério técnico e análise crítica. </p>
+            <button class="cta-button" onclick="scrollToSection('projects')">Ver Projetos</button>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="projects-grid">
+                <!-- Project 1: Painel Semântico -->
+                <div class="project-card" onclick="openModal('modal-aura')">
+                    <div class="project-image"><img src="C:\Users\maria\OneDrive\Imagens\Capturas de tela\Painel Semantico.png" alt="AURA"></div>
+                    <div class="project-content">
+                        <div class="project-category">Branding</div>
+                        <h3 class="project-title">AURA – Automação</h3>
+                        <p class="project-description">Painel Semântico para marca de soluções em automação residencial. Análise de identidade visual, psicologia de cores e posicionamento de marca.</p>
+                    </div>
+                </div>
+
+                                <!-- Project 2: Infográfico -->
+                <div class="project-card" onclick="openModal('modal-infografico')">
+                    <div class="project-image" style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="C:\Users\maria\OneDrive\Imagens\Capturas de tela\Infografico.png"
+                            alt="Design Anos 60"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-category">Infográfico</div>
+                        <h3 class="project-title">Design Anos 60</h3>
+                        <p class="project-description">
+                            Infográfico sobre movimento o artístico nos anos 60. Pop Art, Psicodelismo e Futurismo.
+                            Análise de composição visual e tipografia.
+                        </p>
+                    </div>
+                </div>
+
+                            <!-- Project 3: Flyer -->
+                <div class="project-card" onclick="openModal('modal-flyer')">
+                    <div class="project-image" style="width: 100%; height: 200px; overflow: hidden;">
+                        <img src="C:\Users\maria\OneDrive\Imagens\Capturas de tela\Flyer.png"
+                            alt="Flyer IF Maker"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <div class="project-content">
+                        <div class="project-category">Publicidade</div>
+                        <h3 class="project-title">Flyer IF Maker</h3>
+                        <p class="project-description">
+                            Design de flyer para laboratório de inovação do IF. Aplicação de princípios CRAP, 
+                            hierarquia visual e call-to-action efetivo.
+                        </p>
+                    </div>
+                </div>
+
+                                    <!-- Project 4: Poster -->
+                    <div class="project-card" onclick="openModal('modal-poster')">
+                        <div class="project-image" style="width: 100%; height: 200px; overflow: hidden;">
+                            <img src="C:\Users\maria\OneDrive\Imagens\Capturas de tela\Poster Informativo.png"
+                                alt="Poster Fibonacci"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">Educativo</div>
+                            <h3 class="project-title">Poster – Fibonacci</h3>
+                            <p class="project-description">
+                                Pôster informativo sobre Sequência de Fibonacci. Design equilibrado com aplicação 
+                                de proporção áurea e harmonia.
+                            </p>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div>
+            <div class="about-text">
+                <h2>Sobre Este Portfólio</h2>
+                <p>Este portfólio reúne atividades acadêmicas desenvolvidas em disciplina de Design Gráfico, com foco em <strong>análise crítica</strong>, conceitos e criatividade.</p>
+                <p>Cada projeto segue metodologia rigorosa: pesquisa, planejamento, execução e justificativa técnica.</p>
+                <p>Competências desenvolvidas incluem domínio de teoria das cores, princípios de design, psicologia visual, branding e ferramentas de produção (Photoshop, design thinking, Canva).</p>
+            </div>
+        </div>
+        <div>
+            <div class="skills-grid">
+                <div class="skill-item">🎨 Teoria das Cores</div>
+                <div class="skill-item">📐 Princípios CRAP</div>
+                <div class="skill-item">🧠 Psicologia Visual</div>
+                <div class="skill-item">💡 Branding</div>
+                <div class="skill-item">✂️ Photoshop</div>
+                <div class="skill-item">📊 Análise Crítica</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Modal AURA -->
+    <div id="modal-aura" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-aura')">&times;</span>
+            <h2 class="modal-title">🏠 AURA – Soluções em Automação Residencial</h2>
+            
+            <div class="modal-section">
+                <h3>Tipo de Projeto</h3>
+                <p class="modal-text">Painel Semântico / Branding</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Descrição</h3>
+                <p class="modal-text">Desenvolvimento de identidade visual para marca de automação residencial de luxo. O painel semântico mapeia atributos visuais, psicológicos e emocionais.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Paleta de Cores</h3>
+                <p class="modal-text">Azuis profundos + Violeta + Branco. Transmite: tecnologia, sofisticação, confiança, luxo.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Justificativa de Design</h3>
+                <p class="modal-text">• <strong>Azul escuro</strong>: confiança, segurança, tecnologia avançada<br>
+                • <strong>Violeta</strong>: luxo, exclusividade, premium positioning<br>
+                • <strong>Tipografia sans-serif</strong>: modernidade, clareza<br>
+                • <strong>Formas geométricas</strong>: ordem, precisão, controle automático</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Princípios Aplicados</h3>
+                <p class="modal-text">✅ Contraste: azul + violeta e branco destacam-se claramente<br>
+                ✅ Repetição: elementos geométricos repetem-se<br>
+                ✅ Alinhamento: grid rigoroso <br>
+                ✅ Proximidade: elementos relacionados agrupados</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Arquivo</h3>
+                <p class="modal-text">Painel Semantico Mariana B. Freitas </p>
+                <img src="img/Painel Semantico.png" alt="Painel Semântico AURA" style="margin-top: 1rem; max-height: 300px;">
+                <br><a href="pdf/Painel Semantico - Mariana B. Freitas.pdf" target="_blank">Abrir PDF</a>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;"><em>Nota: Para visualizar a imagem completa, abra o arquivo PDF anexado.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Infográfico -->
+    <div id="modal-infografico" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-infografico')">&times;</span>
+            <h2 class="modal-title">🎨 Design nos Anos 60</h2>
+            
+            <div class="modal-section">
+                <h3>Tipo de Projeto</h3>
+                <p class="modal-text">Infográfico Histórico / Pesquisa Visual</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Descrição</h3>
+                <p class="modal-text">Infográfico sobre movimentos artísticos dos anos 60: Pop Art, Psicodelismo e Futurismo. Análise de características visuais, contexto histórico e influências.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Estilos Analisados</h3>
+                <p class="modal-text"><strong>Pop Art:</strong> Cores vibrantes, repetição, ícones culturais<br>
+                <strong>Psicodelismo:</strong> Cores psicodélicas, formas onduladas, ilusão óptica<br>
+                <strong>Futurismo:</strong> Cores metálicas, formas geométricas, visão prospectiva</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Composição Visual</h3>
+                <p class="modal-text">Uso de cores primárias puras, tipografia ousada, divisão de seções por cores contrastantes. Hierarquia clara entre estilos.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Arquivo</h3>
+                <p class="modal-text">Infografico Mariana B. Freitas </p>
+                <img src="img/Infografico.png" alt="Infografico 60s" style="margin-top: 1rem; max-height: 300px;">
+                <br><a href="pdf/Infográfico 60s Mariana B. Freitas.pdf" target="_blank">Abrir PDF</a>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;"><em>Nota: Para visualizar a imagem completa, abra o arquivo PDF anexado.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Flyer -->
+    <div id="modal-flyer" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-flyer')">&times;</span>
+            <h2 class="modal-title">📢 Flyer – IF Maker</h2>
+            
+            <div class="modal-section">
+                <h3>Tipo de Projeto</h3>
+                <p class="modal-text">Design Publicitário / Convite Institucional</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Descrição</h3>
+                <p class="modal-text">Flyer promocional para laboratório de inovação e educação maker. Objetivo: atrair alunos e comunicar valores institucionais.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Aplicação dos Princípios CRAP</h3>
+                <p class="modal-text"><strong>Contraste:</strong> Título em grande escala, elemento visual central destaca-se<br>
+                <strong>Repetição:</strong> Elementos de marca repetem-se consistentemente<br>
+                <strong>Alinhamento:</strong> Texto e imagens alinhados em grid invisível<br>
+                <strong>Proximidade:</strong> Informações relacionadas agrupadas; chamada para ação separada e destacada</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Call-to-Action</h3>
+                <p class="modal-text">Posicionamento estratégico de "Venha fazer parte deste projeto!" com cores contrastantes e tipografia destaque.<br>
+                    A ideia foi juntar os pontos principais e apresentá-los no Flyer.
+                </p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Arquivo</h3>
+                <p class="modal-text">Flyer Mariana B. Freitas </p>
+                <img src="img/Flyer.png" alt="Flyer IF Maker" style="margin-top: 1rem; max-height: 300px;">
+                <br><a href="pdf/Flyer IFC - Mariana.pdf" target="_blank">Abrir PDF</a>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;"><em>Nota: Para visualizar a imagem completa, abra o arquivo PDF anexado.</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Poster -->
+    <div id="modal-poster" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-poster')">&times;</span>
+            <h2 class="modal-title">📊 Pôster – Sequência de Fibonacci</h2>
+            
+            <div class="modal-section">
+                <h3>Tipo de Projeto</h3>
+                <p class="modal-text">Design Informativo / Educacional</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Descrição</h3>
+                <p class="modal-text">Pôster que explica a filosofia por trás da Sequência de Fibonacci em Design. Aborda proporção áurea, simetria e harmonias visuais.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Conceitos Apresentados</h3>
+                <p class="modal-text"><strong>Fibonacci em Design:</strong> Imita padrões naturais para criar harmonia visual<br>
+                <strong>Proporção Áurea (φ ≈ 1,618):</strong> Gera retângulos e espirais orgânicas<br>
+                <strong>Hierarquia Dinâmica:</strong> Tamanhos progressivos criam fluxo visual<br>
+                <strong>Simetria Assimétrica:</strong> Evita rigidez; prefere ordem orgânica</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Aplicação Visual</h3>
+                <p class="modal-text">Espiral Fibonacci como elemento gráfico central. Uso de hierarquia tipográfica que segue proporções. Cores que criam movimento visual.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Arquivo</h3>
+                <p class="modal-text">Pôster Informativo Mariana B. Freitas </p>
+                <img src="img/Poster Informativo.png" alt="Poster Informativo" style="margin-top: 1rem; max-height: 300px;">
+                <br><a href="pdf/Poster Informativo - Mariana.pdf" target="_blank">Abrir PDF</a>
+                <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;"><em>Nota: Para visualizar a imagem completa, abra o arquivo PDF anexado.</em></p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 Portfólio de Design Gráfico – Mariana Freitas. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="mailto:mariana@email.com">📧 Email</a>
+                <a href="#instagram">📱 Instagram</a>
+                <a href="#behance">🎨 Behance</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #888;">Desenvolvido como portfólio acadêmico | Disciplina: Design Gráfico</p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Smooth scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
